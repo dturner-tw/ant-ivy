@@ -1255,6 +1255,10 @@ public class IvySettings implements SortEngineSettings, PublishEngineSettings, P
         this.defaultLockStrategy = defaultLockStrategy;
     }
 
+    public synchronized void setDefaultTimeout(int timeout) {
+        URLHandlerRegistry.setTimeout(timeout);
+    }
+
     public synchronized RepositoryCacheManager getDefaultRepositoryCacheManager() {
         if (defaultRepositoryCacheManager == null) {
             defaultRepositoryCacheManager = new DefaultRepositoryCacheManager("default-cache",
